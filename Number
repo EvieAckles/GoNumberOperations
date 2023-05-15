@@ -1,0 +1,53 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	numbers := []int{2, 4, 6, 8, 10}
+	sum := calculateSum(numbers)
+	average := calculateAverage(numbers)
+	max := findMax(numbers)
+	min := findMin(numbers)
+
+	fmt.Printf("Сумма чисел: %d\n", sum)
+	fmt.Printf("Среднее значение: %.2f\n", average)
+	fmt.Printf("Наибольшее число: %d\n", max)
+	fmt.Printf("Наименьшее число: %d\n", min)
+}
+
+func calculateSum(numbers []int) int {
+	sum := 0
+	for _, num := range numbers {
+		sum += num
+	}
+	return sum
+}
+
+func calculateAverage(numbers []int) float64 {
+	sum := calculateSum(numbers)
+	average := float64(sum) / float64(len(numbers))
+	return average
+}
+
+func findMax(numbers []int) int {
+	max := math.MinInt32
+	for _, num := range numbers {
+		if num > max {
+			max = num
+		}
+	}
+	return max
+}
+
+func findMin(numbers []int) int {
+	min := math.MaxInt32
+	for _, num := range numbers {
+		if num < min {
+			min = num
+		}
+	}
+	return min
+}
